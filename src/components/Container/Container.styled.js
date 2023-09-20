@@ -7,7 +7,7 @@ export const ContainerStyle = styled.section`
     align-items: center;
 
     .title__stat{
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         font-size: 35px;
     }
 `
