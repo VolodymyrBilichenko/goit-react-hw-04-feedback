@@ -10,29 +10,28 @@ export const App = () => {
   const [feedback, setFeedback] = useState(initFeedback);
 
   const changeOnClick = option => {
-    setFeedback(prevState => ({
-      [option]: prevState[option] + 1,
+    setFeedback(prevFeedback => ({
+      ...prevFeedback,
+      [option]: prevFeedback[option] + 1,
     }));
   };
 
   const countTotalFeedback = () => {
+    const {good, neutral, bad} = feedback;
     return good + neutral + bad;
   };
 
   const countPositiveFeedbackPercentage = () => {
     const maxTotal = countTotalFeedback();
-    return maxTotal === 0 ? 0 : (good / maxTotal) * 100;
+    return maxTotal === 0 ? 0 : (feedback.good / maxTotal) * 100;
   };
 
-  return (
-    <Container>
-      <SectionTitle title={'Please leave your feedback'} />
-
-      <SectionBtn option={Object.keys()} changeOnClick={changeOnClick} />
-
-      {this.countTotalFeedback() === 0 ? (
-        <Notify message={'There is no feedback, sorry'} />
-      ) : (
+  const renderStatistic = () => {
+    const {good, neutral, bad} = feedback;
+    if (countTotalFeedback() === 0) {
+      return <Notify message={'There is no feedback, sorry'} />
+    } else {
+      return(
         <Statistic
           title={'Statistics'}
           good={good}
@@ -41,7 +40,17 @@ export const App = () => {
           total={countTotalFeedback()}
           count={countPositiveFeedbackPercentage()}
         />
-      )}
+      )
+    }
+  }
+
+  return (
+    <Container>
+      <SectionTitle title={'Please leave your feedback'} />
+
+      <SectionBtn option={feedback} changeOnClick={changeOnClick} />
+      
+      {renderStatistic()}
     </Container>
   );
 };

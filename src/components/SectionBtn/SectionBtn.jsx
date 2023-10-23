@@ -4,7 +4,7 @@ import { SectionBtnStyle } from './SectionBtn.styled';
 export const SectionBtn = ({changeOnClick, option}) => {
     return (
         <SectionBtnStyle>
-            {option.map(feedback => (
+            {Object.keys(option).map(feedback => (
                 <button className='button-stat'
                     type='button'
                     key={nanoid()}

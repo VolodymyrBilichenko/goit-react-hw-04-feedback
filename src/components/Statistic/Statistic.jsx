@@ -16,11 +16,3 @@ export const Statistic = ({ good, neutral, bad, total, count, title }) => {
         </Container>
     )
 };
-
-Statistic.propTypes = {
-    good: PropTypes.number.isRequired,
-    neutral: PropTypes.number.isRequired,
-    bad: PropTypes.number.isRequired,
-    total: PropTypes.number.isRequired,
-    count: PropTypes.number.isRequired,
-}
