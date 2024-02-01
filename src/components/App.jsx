@@ -15,7 +15,6 @@ export const App = () => {
       [option]: prevFeedback[option] + 1,
     }));
   };
-  
 
   const countTotalFeedback = () => {
     const {good, neutral, bad} = feedback;
