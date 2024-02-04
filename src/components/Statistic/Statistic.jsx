@@ -1,6 +1,5 @@
 import { Container } from "components/Container/Container";
 import { StatisticStyle } from "./Statistic.styled"
-import PropTypes from 'prop-types';
 
 export const Statistic = ({ good, neutral, bad, total, count, title }) => {
     return (
